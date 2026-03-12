@@ -1,10 +1,75 @@
 #Création d'un jeu : le pendu
 import random
+tab=[
+    """
+       +-------+
+       |
+       |
+       |
+       |
+       |
+    ==============
+    """,
+    """
+       +-------+
+       |       |
+       |       O
+       |
+       |
+       |
+    ==============
+    """
+        ,
+    """
+       +-------+
+       |       |
+       |       O
+       |       |
+       |
+       |
+    ==============
+    """,
+    """
+       +-------+
+       |       |
+       |       O
+       |      -|
+       |
+       |
+    ==============
+    """,
+    """
+       +-------+
+       |       |
+       |       O
+       |      -|-
+       |
+       |
+    ==============
+    """,
+    """
+       +-------+
+       |       |
+       |       O
+       |      -|-
+       |      |
+       |
+    ==============
+    """,
+    """
+       +-------+
+       |       |
+       |       O
+       |      -|-
+       |      | |
+       |
+    ==============
+    """
+    ]
 
 
 def jeu_pendu () :
     # 1er étape
-    mot_final = ""
     vies = 6
     mots = ["python", "chat", "chien", "poule", "poisson"]
     lettres_essayees = []
@@ -13,6 +78,7 @@ def jeu_pendu () :
 
     #2ème étape
     while '_' in list_mot and vies > 0 :
+        print(tab[6 - vies])
         lettre_joueur = input("Entrer une lettre : ").lower()
 
         if len(lettre_joueur) != 1 or not lettre_joueur.isalpha():
@@ -40,14 +106,12 @@ def jeu_pendu () :
         print("Lettres essayées :", lettres_essayees)
 
     #3ème étape
-    if vies == 0 and '_' in list_mot :
+    if vies == 0 :
         print("Vous avez perdu")
+        print(tab[6])
     else :
-        mot_final = ''.join(list_mot)
-
-        if mot_final == mot :
-            print("Vous avez gagné" )
-            print("le mot à déviner était :", mot)
+        print("Vous avez gagné" )
+        print("le mot à déviner était :", mot)
 
 
 
